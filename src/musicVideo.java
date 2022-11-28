@@ -22,7 +22,6 @@ public class musicVideo extends music {
     }
 
     void describeSelf() {
-        super.describeSelf();
         System.out.println(getName() + " was ranked number " + ranking + " out off all music videos on youtube with " + getInteractions() + " billion views. It was uploaded on " + youtubeUploader + "‘s account in " + getReleased() + ".");
     }
 }
