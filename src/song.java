@@ -1,12 +1,12 @@
 public class song extends music {
 
     private String Artist;
-    private int sales;
 
-    public song(String name, float interactions, String released, String artist, int sales) {
+
+    public song(String name, float interactions, String released, String artist) {
         super(name, interactions, released);
         Artist = artist;
-        this.sales = sales;
+
     }
 
     public String getArtist() {
@@ -17,11 +17,8 @@ public class song extends music {
         Artist = artist;
     }
 
-    public int getSales() {
-        return sales;
-    }
 
-    public void setSales(int sales) {
-        this.sales = sales;
+    void describeSelf() {
+        System.out.println(getName() + " was created by " + getArtist() + ". It was released in the year " + getReleased() + ". It had " + getInteractions() + "views." );
     }
 }
