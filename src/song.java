@@ -18,7 +18,7 @@ public class song extends music {
     }
 
 
-    void describeSelf() {
-        System.out.println(getName() + " was created by " + getArtist() + ". It was released in the year " + getReleased() + ". It had " + getInteractions() + "views." );
+    public String toString() {
+    return getName() + " was created by " + getArtist() + ". It was released in the year " + getReleased() + ". It had " + getInteractions() + "views.";
     }
 }

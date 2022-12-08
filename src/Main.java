@@ -6,7 +6,7 @@ public class Main {
 
         new song("White Christmas",50000000,"1942","Bing Crosby");
         for (music data : music.getAllData()) {
-            data.describeSelf();
+            System.out.println(data);
         }
     }
 }
