@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class musicVideo extends music {
     final private String youtubeUploader;
     private int ranking;
@@ -22,6 +25,37 @@ public class musicVideo extends music {
     }
 
   public String toString() {
-       return getName() + " was ranked number " + ranking + " out off all music videos on youtube with " + getInteractions() + " billion views. It was uploaded on " + youtubeUploader + "‘s account on " + getReleased() + ".";
+       return"The song " + getName() + " was ranked number " + ranking + " out off all music videos on youtube with " + getInteractions() + " billion views. It was uploaded on " + youtubeUploader + "‘s account on " + getReleased() + ".";
     }
+
+    static void readAllData() throws Exception {
+        Scanner sc = new Scanner(new File("src/musicVideoData"));
+        while (sc.hasNext()) {
+            String str = sc.nextLine();
+            Scanner lineScanner = new Scanner(str);
+            lineScanner.useDelimiter("\t");
+
+            String ranking = lineScanner.next();
+            String rankingClean = ranking.replace(".","");
+            int rankingNumber = Integer.parseInt(rankingClean);
+
+            String name = lineScanner.next();
+            //name not being used but ranking
+            String nameClean = name.replace("\"","");
+            int firstBracketLocation = nameClean.indexOf("[");
+            if (firstBracketLocation >= 0) {
+                nameClean = nameClean.substring(0, firstBracketLocation);
+            }
+
+            String youtubeUploader = lineScanner.next();
+
+            float interactions = lineScanner.nextFloat();
+
+            String released = lineScanner.next();
+
+            new musicVideo(nameClean,interactions,released,rankingNumber,youtubeUploader);
+        }
+        sc.close();
+    }
+
 }
